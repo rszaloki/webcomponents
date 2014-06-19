@@ -1,1 +1,1 @@
-go to http://rszaloki.github.io/webcomponents/
+template example: http://rszaloki.github.io/webcomponents/template/index.html
