@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+  <style>
+    header {
+      background:pink;
+    }
+    header:before {
+      content: 'header:'
+    }
+
+    footer {
+      background:lightblue;
+    }
+    footer:before {
+      content: 'footer:'
+    }
+  </style>
+</head>
+<body>
+  <template>
+    <h1>Everything is AWESOME</h1>
+  </template>
+  <header></header>
+  <footer></footer>
+  <script>
+    var template = document.querySelector('template');
+    var targets = document.querySelectorAll('header,footer');
+    [].forEach.call(targets, function(target){
+      target.appendChild(document.importNode(template.content,true));
+    })
+  </script>
+</body>
+</html>
