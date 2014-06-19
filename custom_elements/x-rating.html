@@ -1,0 +1,29 @@
+<meta charset="utf-8">
+<script>
+  (function(){
+
+    var stars = "★★★★★".split('');
+    var ATTRIBUTE_NAME = "value";
+
+    function render(node, value){
+      node.innerHTML = stars.slice(0,Math.max(Math.min(value,5),0)).join('');
+    }
+
+    document.registerElement('x-rating', {prototype: Object.create(HTMLElement.prototype,{
+      createdCallback:{
+        value: function(){
+          render(this,this.getAttribute('value'));
+        }
+      },
+      attributeChangedCallback:{
+        value: function(attr, oldVal, newVal){
+          if(attr === ATTRIBUTE_NAME) {
+            render(this,newVal);
+          }
+        }
+      }
+
+    })});
+
+  })()
+</script>

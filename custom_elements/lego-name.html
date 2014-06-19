@@ -1,0 +1,42 @@
+<meta charset="utf-8">
+<style>
+dt[is="lego-name"] {
+  font-family: impact;
+  font-size:30px;
+  text-align: left;
+  clear:left;
+}
+
+dt[is="lego-name"] > img {
+  display:inline-block;
+  vertical-align:middle;
+  margin-right:1em;
+}
+
+dt[is="lego-name"] ~ dd {
+  margin:0.5em 0 1.5em 0;
+  font-size:24px;
+  font-family:sans-serif;
+}
+
+</style>
+<script>
+  (function(){
+
+
+    document.registerElement('lego-name', {
+      prototype: Object.create(HTMLElement.prototype,{
+        createdCallback:{
+          value: function(){
+            var name = this.innerText;
+            var image = document.createElement('img');
+            image.src = "img/" + name.toLowerCase() + ".jpg";
+            this.insertBefore(image, this.firstChild);
+          }
+        }
+      }),
+      "extends":'dt'
+    });
+
+  })()
+</script>
