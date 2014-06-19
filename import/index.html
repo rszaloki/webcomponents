@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Import main file</title>
+<script>
+
+function render() {
+  var content = document.getElementById('assets').import,
+      template = content.getElementById('item');
+      target = document.querySelector('dl');
+
+  [{name:"EMMET",desc:"An ordinary, rules-following, perfectly average LEGO minifigure who is mistakenly identified as the most extraordinary person and the key to saving the world. He is drafted into a fellowship of strangers on an epic quest to stop an evil tyrant, a journey for which Emmet is hopelessly and hilariously underprepared."},
+  {name:"Wyldstyle",desc:"A free spirit who loves pushing boundaries and being creative. She has a strong, independent streak that makes her question when things are wrong. Since she believes Emmet is the “Special” from The Prophecy who’s destined to save Bricksburg, sparks have been flying between them, in spite of herself… and her current boyfriend."},
+  {name:"Vitruvius",desc:"An ancient and heroic wizard who prophesizes that a “Special” will defeat Lord Business and become the greatest LEGO Master Builder of all. He tries to teach Emmet that the key to true building is to believe in yourself and follow your own set of instructions inside your head."},
+  {name:"Lord Business",desc:"President Business, an uptight CEO who has a hard time balancing world domination with micro-managing his own life. He operates a successful business front that creates music, TV shows, surveillance systems, history books and voting machines, in addition to all dairy products and coffee. Secretly, he is Lord Business, the most evil of tyrants who oversees a robot militia and attempts to take over the LEGO universe. "}].forEach(function(item){
+      var clone = document.importNode(template.content,true);
+      clone.querySelector('dt').innerHTML = item.name;
+      clone.querySelector('dd').innerHTML = item.desc;
+      target.appendChild(clone);
+  });
+}
+</script>
+<link rel="import" href="assets.html" id="assets" onload="render()"></head>
+<body>
+  <h1>This is the main file</h1>
+  <dl id="characters"></dl>
+
+</body>
+</html>
