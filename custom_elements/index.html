@@ -3,11 +3,25 @@
 <head>
 <meta charset="utf-8">
 <title>Custom Elements Example</title>
+<style>
+  BODY > img {
+    position:fixed;
+    top:0;
+    left:0;
+  }
+  dl {
+    padding-top:40px;
+    position: absolute;
+    top:200px;
+    left:0;
+    background:rgba(255,255,255,0.8);
+  }
+</style>
 <link rel="import" href="x-rating.html">
 <link rel="import" href="lego-name.html">
 </head>
 <body>
-<label>Rating: <x-rating value="3"></x-rating></label>
+<img src="title.png">
 <dl>
   <dt is="lego-name">EMMET</dt><dd>An ordinary, rules-following, perfectly average LEGO minifigure who is mistakenly identified as the most extraordinary person and the key to saving the world. He is drafted into a fellowship of strangers on an epic quest to stop an evil tyrant, a journey for which Emmet is hopelessly and hilariously underprepared.
   <label>Rating: <x-rating value="5"></x-rating></label></dd>
