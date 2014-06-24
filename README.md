@@ -1,3 +1,5 @@
-template example: http://rszaloki.github.io/webcomponents/template/index.html
-import example: http://rszaloki.github.io/webcomponents/import/index.html
-custom elements example: http://rszaloki.github.io/webcomponents/custom_elements/index.html
+- template example: http://rszaloki.github.io/webcomponents/template/index.html
+- import example: http://rszaloki.github.io/webcomponents/import/index.html
+- custom elements example: http://rszaloki.github.io/webcomponents/custom_elements/index.html
+- shadow dom example: http://rszaloki.github.io/webcomponents/shadow_dom/index.html
+- polymer demo: http://rszaloki.github.io/webcomponents/polymer-demo/lego.html
