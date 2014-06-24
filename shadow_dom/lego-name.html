@@ -1,0 +1,53 @@
+<meta charset="utf-8">
+<template id="lego-name-template">
+  <style>
+    :host {
+      text-align:center;
+      display:inline-block;
+      width:200px;
+      vertical-align:top;
+      padding:1em;
+      border:2px solid #888;
+      border-radius: 20px;
+      box-shadow: 5px 5px 5px #888;
+      margin:0 10px;
+      font-size: 16px;
+    }
+
+    ::content a {
+      font-family: impact;
+      font-size:30px;
+      color:green;
+    }
+
+    ::content input[is="x-rating"] {
+      font-size: 14px;
+    }
+
+
+
+  </style>
+  <content select="img"></content>
+  <content select="a"></content>
+  <hr>
+  <button>Select</button>
+  <content></content>
+</template>
+<script>
+
+  (function(){
+    var template = document.currentScript.ownerDocument.getElementById('lego-name-template');
+    document.registerElement('lego-name', {
+      prototype: Object.create(HTMLElement.prototype,{
+        createdCallback:{
+          value: function(){
+            var shadow = this.createShadowRoot();
+            shadow.appendChild(document.importNode(template.content,true));
+          }
+        }
+      }),
+      "extends":'li'
+    });
+
+  })()
+</script>

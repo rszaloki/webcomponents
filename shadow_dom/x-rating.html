@@ -1,0 +1,78 @@
+<meta charset="utf-8">
+<template id="x-rating-template">
+<style>
+  :host {
+    border:0;
+    color:black;
+  }
+
+  :host([readonly]) button {
+    display:none
+  }
+
+  label, span, button {
+    display:inline-block;
+    vertical-align: middle;
+  }
+
+  span {
+    width:5em;
+    color:goldenrod;
+  }
+</style>
+<label>Rating: </label>
+<button id="dec">-</button>
+<span id="value"></span>
+<button id="inc">+</button>
+</template>
+<script>
+  (function(){
+
+    var stars = "★★★★★".split('');
+    var ATTRIBUTE_NAME = "value";
+    var template = document.currentScript.ownerDocument.getElementById('x-rating-template');
+
+    function render(node, value){
+      node.innerHTML = stars.slice(0,value).join('');
+    }
+
+    function attach(id, increment){
+      var node = this.shadowRoot.getElementById(id);
+      node.addEventListener('click', this.increment.bind(this,increment));
+    }
+
+    document.registerElement('x-rating', {prototype: Object.create(HTMLInputElement.prototype,{
+      displayNode:{
+        value:null
+      },
+      increment:{
+        value:function(increment){
+          this.setAttribute(ATTRIBUTE_NAME,Math.max(Math.min(this.getAttribute(ATTRIBUTE_NAME)*1+increment,5),0));
+        }
+      },
+      createdCallback:{
+        value: function(){
+          this.createShadowRoot();
+          this.shadowRoot.appendChild(document.importNode(template.content,true));
+          render(this.shadowRoot.getElementById('value'),this.getAttribute(ATTRIBUTE_NAME));
+        }
+      },
+      attachedCallback:{
+        value: function(){
+          attach.call(this,'inc',1);
+          attach.call(this,'dec',-1);
+        }
+      },
+      attributeChangedCallback:{
+        value: function(attr, oldVal, newVal){
+          if(attr === ATTRIBUTE_NAME) {
+            render(this.shadowRoot.getElementById('value'),newVal);
+          }
+        }
+      }
+
+    }),
+    extends:'input'});
+
+  })()
+</script>
