@@ -1,0 +1,38 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/polymer-ui-ratings/polymer-ui-ratings.html">
+<polymer-element name="lego-avatar" attributes="name image desc rating" noscript>
+<template>
+  <style>
+    :host {
+      text-align:center;
+      display:inline-block;
+      width:200px;
+      vertical-align:top;
+      padding:1em;
+      border:2px solid #888;
+      border-radius: 20px;
+      box-shadow: 5px 5px 5px #888;
+      margin:0 10px;
+      font-size: 16px;
+    }
+
+    h1 {
+      margin:0;
+      font-family: Impact;
+    }
+
+    p {
+      text-align:justify;
+    }
+
+    polymer-ui-ratings::shadow #star {
+      margin:0;
+    }
+
+  </style>
+  <img src="{{image}}">
+  <h1>{{name}}</h1>
+  <polymer-ui-ratings value="{{rating}}"></polymer-ui-ratings>
+  <p>{{desc}}</p>
+</template>
+</polymer-element>

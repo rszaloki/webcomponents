@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<script src="bower_components/platform/platform.js"></script>
+<link rel="import" href="bower_components/google-sheets/google-sheets.html">
+<link rel="import" href="my-components/lego-avatar/lego-avatar.html">
+</head>
+<body>
+  <template is="auto-binding">
+      <google-sheets
+        key="15IjQoPnW8rHQvWAISKkEBo21SDoGsFycG0ekBQc8144" gid="0" rows="{{rows}}"
+        published>
+      </google-sheets>
+      <template repeat="{{row in rows}}">
+        <lego-avatar
+          name="{{row.gsx$name.$t}}"
+          image="{{row.gsx$image.$t}}"
+          desc="{{row.gsx$desc.$t}}"
+          rating="{{row.gsx$rating.$t}}"></lego-avatar>
+      </template>
+  </template>
+</body>
+</html>

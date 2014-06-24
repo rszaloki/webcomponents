@@ -1,0 +1,22 @@
+{
+  "name": "polymer-demo",
+  "version": "0.0.0",
+  "authors": [
+    "Robert Szaloki <robert.szaloki@euedge.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "~0.2.3",
+    "google-sheets": "GoogleWebComponents/google-sheets#~0.0.2",
+    "google-map": "PolymerLabs/google-map#~0.3.0",
+    "polymer-ui-ratings": "Polymer/polymer-ui-ratings#~0.3.0"
+  }
+}
